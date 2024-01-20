@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,28 +10,39 @@
         android:id="@+id/current_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="@string/temperature_format"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/current_temp_color"
+        android:textSize="96sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"
-        android:textSize="96sp"
-        android:textStyle="bold"
-        android:textColor="@color/current_temp_color"
-        android:fontFamily="@font/robotoblack"/>
+        tools:text="@string/temperature_format" />
 
     <TextView
         android:id="@+id/current_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/temperature_format"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/current_temp"
+        android:fontFamily="@font/robotothin"
+        tools:text="@string/temperature_format"
+        android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:fontFamily="@font/robotothin"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/current_temp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loader"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/loader"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

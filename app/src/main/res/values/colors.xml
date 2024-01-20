@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="current_temp_color">#2A2A2A</color>
     <color name="city_color">#556799</color>
+    <color name="screen_bg">#F5F6F7</color>
+    <color name="error_bg">#F44336</color>
 </resources>

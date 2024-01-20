@@ -1,5 +1,7 @@
 package com.example.weatherapp.domain
 
+import android.view.View
+
 object Util {
 
     fun kelvinToCelsius(kelvin: Double): Double {
@@ -8,5 +10,14 @@ object Util {
 
     fun formatTemperature(temperature: Double): String {
         return String.format("%.1f", temperature)
+    }
+
+    fun View.show() {
+        visibility = View.VISIBLE
+    }
+
+    // Extension function to hide a view
+    fun View.hide() {
+        visibility = View.GONE
     }
 }
