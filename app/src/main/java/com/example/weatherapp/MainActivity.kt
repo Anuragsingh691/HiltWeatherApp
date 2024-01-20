@@ -1,14 +1,10 @@
 package com.example.weatherapp
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.domain.Constants
 import com.example.weatherapp.domain.Util.formatTemperature
@@ -19,7 +15,6 @@ import com.example.weatherapp.view.WeatherViewModel
 import com.example.weatherapp.view.WeatherViewState
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -66,6 +61,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        viewModel.forecastLiveData.observe(this) { weatherViewState ->
+            when (weatherViewState) {
+                is WeatherViewState.Loading -> {
+                    startLoader()
+                }
+
+                is WeatherViewState.Success -> {
+                    cancelLoader()
+                    Toast.makeText(this, "data ${weatherViewState.data.list}", Toast.LENGTH_LONG)
+                        .show()
+                }
+
+                is WeatherViewState.Failure -> {
+                    cancelLoader()
+                    showSnackBarWithRetry()
+                }
+            }
+        }
     }
 
     private fun startLoader() {
@@ -97,6 +110,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchWeatherData() {
-        viewModel.getCurrentCityWeather(Constants.CITY)
+        viewModel.getWeatherForecast(Constants.CITY)
     }
 }

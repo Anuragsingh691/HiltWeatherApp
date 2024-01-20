@@ -10,7 +10,7 @@
         android:id="@+id/current_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/robotoblack"
         android:textColor="@color/current_temp_color"
         android:textSize="96sp"
@@ -25,24 +25,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/robotothin"
-        tools:text="@string/temperature_format"
         android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/current_temp" />
+        app:layout_constraintTop_toBottomOf="@id/current_temp"
+        tools:text="@string/temperature_format" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loader"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/loader"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/loader" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
