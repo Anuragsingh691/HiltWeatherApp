@@ -3,8 +3,10 @@ package com.example.weatherapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.domain.Constants
 import com.example.weatherapp.domain.Util.formatTemperature
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                     binding.forecastRecyclerView.apply {
                         layoutManager = LinearLayoutManager(this@MainActivity)
                         adapter = forecastAdapter
+                        runRecyclerViewAnimation(this)
                     }
                 }
 
@@ -123,5 +126,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchWeatherData() {
         viewModel.getWeatherForecast(Constants.CITY)
+    }
+
+    private fun runRecyclerViewAnimation(recyclerView: RecyclerView) {
+        val context = recyclerView.context
+        val controller = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_from_bottom)
+
+        recyclerView.startAnimation(
+            AnimationUtils.loadAnimation(
+                context,
+                R.anim.slide_up_whole_recyclerview
+            )
+        )
+        recyclerView.layoutAnimation = controller
+        recyclerView.scheduleLayoutAnimation()
     }
 }
