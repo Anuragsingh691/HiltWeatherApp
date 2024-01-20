@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="unit_celsius">°</string>
+    <string name="temperature_format">%s%s</string>
 </resources>
