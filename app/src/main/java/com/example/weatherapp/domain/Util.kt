@@ -16,7 +16,6 @@ object Util {
         visibility = View.VISIBLE
     }
 
-    // Extension function to hide a view
     fun View.hide() {
         visibility = View.GONE
     }
