@@ -20,7 +20,7 @@ class WeatherRepoImpl @Inject constructor(
         }
     }
 
-    override suspend fun getWeatherForecast(city: String): ForecastResponse {
+    override suspend fun getWeatherForecast(city: String): CityForecastResponse {
         return try {
             val response = weatherApiService.getWeatherForecast(city, API_KEY)
             if (response.isSuccessful) {

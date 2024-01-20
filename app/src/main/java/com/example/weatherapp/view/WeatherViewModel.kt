@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.data.ApiException
-import com.example.weatherapp.data.ForecastResponse
+import com.example.weatherapp.data.CityForecastResponse
 import com.example.weatherapp.data.WeatherRepoImpl
 import com.example.weatherapp.data.WeatherResponse
 import dagger.Lazy
@@ -22,8 +22,8 @@ class WeatherViewModel @Inject constructor(private val repo: Lazy<WeatherRepoImp
     private val _weatherLiveData = MutableLiveData<WeatherViewState<WeatherResponse>>()
     val weatherLiveData: LiveData<WeatherViewState<WeatherResponse>> = _weatherLiveData
 
-    private val _forecastLiveData = MutableLiveData<WeatherViewState<ForecastResponse>>()
-    val forecastLiveData: LiveData<WeatherViewState<ForecastResponse>> = _forecastLiveData
+    private val _forecastLiveData = MutableLiveData<WeatherViewState<CityForecastResponse>>()
+    val forecastLiveData: LiveData<WeatherViewState<CityForecastResponse>> = _forecastLiveData
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         handleGenericException(throwable)

@@ -3,14 +3,15 @@ package com.example.weatherapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.domain.Constants
 import com.example.weatherapp.domain.Util.formatTemperature
 import com.example.weatherapp.domain.Util.hide
 import com.example.weatherapp.domain.Util.kelvinToCelsius
 import com.example.weatherapp.domain.Util.show
+import com.example.weatherapp.view.ForecastAdapter
 import com.example.weatherapp.view.WeatherViewModel
 import com.example.weatherapp.view.WeatherViewState
 import com.google.android.material.snackbar.Snackbar
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: WeatherViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
+    private lateinit var forecastAdapter: ForecastAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,8 +71,12 @@ class MainActivity : AppCompatActivity() {
 
                 is WeatherViewState.Success -> {
                     cancelLoader()
-                    Toast.makeText(this, "data ${weatherViewState.data.list}", Toast.LENGTH_LONG)
-                        .show()
+                    forecastAdapter = ForecastAdapter()
+                    forecastAdapter.submitList(weatherViewState.data.list)
+                    binding.forecastRecyclerView.apply {
+                        layoutManager = LinearLayoutManager(this@MainActivity)
+                        adapter = forecastAdapter
+                    }
                 }
 
                 is WeatherViewState.Failure -> {
@@ -84,11 +90,17 @@ class MainActivity : AppCompatActivity() {
     private fun startLoader() {
         binding.loader.show()
         binding.loader.playAnimation()
+        binding.currentCity.hide()
+        binding.currentTemp.hide()
+        binding.forecastRecyclerView.hide()
     }
 
     private fun cancelLoader() {
         binding.loader.hide()
         binding.loader.cancelAnimation()
+        binding.currentCity.show()
+        binding.currentTemp.show()
+        binding.forecastRecyclerView.show()
     }
 
     private fun showSnackBarWithRetry() {

@@ -6,4 +6,5 @@
     <color name="city_color">#556799</color>
     <color name="screen_bg">#F5F6F7</color>
     <color name="error_bg">#F44336</color>
+    <color name="horizontal_line_gray">#EBE8E8</color>
 </resources>

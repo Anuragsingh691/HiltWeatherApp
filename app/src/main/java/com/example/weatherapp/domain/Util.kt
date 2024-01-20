@@ -1,6 +1,10 @@
 package com.example.weatherapp.domain
 
 import android.view.View
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 object Util {
 
@@ -18,5 +22,22 @@ object Util {
 
     fun View.hide() {
         visibility = View.GONE
+    }
+
+    fun getWeekdayNameFromDate(dateString: String, dateFormat: String = "yyyy-MM-dd"): String {
+        val simpleDateFormat = SimpleDateFormat(dateFormat, Locale.getDefault())
+        try {
+            val date = simpleDateFormat.parse(dateString)
+            val calendar = Calendar.getInstance()
+            calendar.time = date ?: Date()
+            val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+            val weekdays = arrayOf("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+            return weekdays[dayOfWeek - 1]
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return "Invalid Date"
     }
 }
