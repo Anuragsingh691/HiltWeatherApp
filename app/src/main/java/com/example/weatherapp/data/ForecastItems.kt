@@ -5,7 +5,6 @@ data class ForecastItems(
     val dt: Int,
     val dt_txt: String,
     val main: Main,
-    val pop: Int,
     val visibility: Int,
     val weather: List<Weather>,
     val wind: Wind
