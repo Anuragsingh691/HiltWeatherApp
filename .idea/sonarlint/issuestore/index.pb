@@ -9,10 +9,6 @@ p
 @app/src/main/java/com/example/weatherapp/data/TemperatureData.kt,2/2/2272a1c4bb3546145b3310f4cddeef53134d5bb2
 p
 @app/src/main/java/com/example/weatherapp/data/WeatherResponse.kt,5/3/534339703dbcd765d89779baed70fa165dfcf557
-m
-=app/src/main/java/com/example/weatherapp/data/ForecastItem.kt,3/d/3d631f3170ba0c22f2448ce4633177bd30063eae
-q
-Aapp/src/main/java/com/example/weatherapp/data/ForecastResponse.kt,a/d/ad71db21277f7aa4eae088c82d698b6e3b9008d3
 l
 <app/src/main/java/com/example/weatherapp/domain/Constants.kt,7/1/718673f0308ce90c78cfd3532f9e039a87d7df1b
 r
@@ -33,3 +29,15 @@ q
 Aapp/src/main/java/com/example/weatherapp/view/WeatherViewModel.kt,4/7/4761958252a3831dcdca85c93e26e9e5ce4695a3
 a
 1app/src/main/java/com/example/weatherapp/MyApp.kt,d/3/d3222784ff31baed24fa3732b688df6dbf4b98f2
+q
+Aapp/src/main/java/com/example/weatherapp/view/WeatherViewState.kt,2/2/2200d4fab56ca4a519f2df38d93d915ec6c60cde
+g
+7app/src/main/java/com/example/weatherapp/domain/Util.kt,7/3/73a4f8906ae46eabccb8c8abedc2aaf2e8ddec00
+u
+Eapp/src/main/java/com/example/weatherapp/data/CityForecastResponse.kt,4/a/4a200c642118a2e24c10e0d9d8415262c7db98c0
+p
+@app/src/main/java/com/example/weatherapp/view/ForecastAdapter.kt,9/2/9275662f95ce5ac70ec8764b91ba5a96abb5cfaa
+n
+>app/src/main/java/com/example/weatherapp/data/ForecastItems.kt,a/3/a3100f893b13a799b5adee214e0b95507faed5a2
+e
+5app/src/main/java/com/example/weatherapp/data/Main.kt,6/7/6767dbf03503d3d53c3b79819dc3efde9dbb6662
